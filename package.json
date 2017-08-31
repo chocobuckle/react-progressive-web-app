@@ -16,6 +16,11 @@
     "firebase-init": "firebase login && firebase init"
   },
   "devDependencies": {
+    "eslint": "4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-react": "7.1.0",
     "firebase-tools": "^3.9.2"
   }
 }
