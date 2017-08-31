@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { HashRouter, Link } from 'react-router';
+import { HashRouter, Link, Match, Redirect } from 'react-router';
 import { Layout, Header, Content, Navigation, Drawer } from 'react-mdl';
 import './App.css';
+import Tech from './Tech';
+import Games from './Games';
 
 class App extends Component {
   closeDrawer = () => {
@@ -26,7 +28,9 @@ class App extends Component {
               </Navigation>
             </Drawer>
             <Content>
-              Dynamic content here...
+              <Match exactly pattern='/' render={() => <Redirect to='/tech' />} />
+              <Match exactly pattern='/tech' component={Tech} />
+              <Match exactly pattern='/games' component={Games} />
             </Content>
           </Layout>
         </HashRouter>
