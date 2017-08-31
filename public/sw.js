@@ -16,6 +16,8 @@ this.addEventListener('fetch', event => {
       if (response) {
         return response;
       }
+      const fetchRequest = event.request.clone();
+      return fetch(fetchRequest);
     })
   );
 });
