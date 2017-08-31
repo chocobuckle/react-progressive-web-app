@@ -20,14 +20,16 @@ const styles = {
   noPostsWrapper: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
+    flexWrap: 'wrap',
+    maxWidth: '80%',
+    margin: 'auto',
     position: 'relative',
-    top: '200px'
+    top: '3rem'
   },
 
   noPosts: {
     color: '#3F51B5',
-    fontSize: '2rem'
+    fontSize: '1.5rem'
   }
 };
 
