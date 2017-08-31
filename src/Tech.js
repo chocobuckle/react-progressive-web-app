@@ -21,11 +21,13 @@ class Tech extends Component {
   state = {
     posts: [],
     isLoaded: false,
-    isOffline: false
+    isOffline: false,
+    isBackOnline: false
   }
 
   componentDidMount() {
-    window.addEventListener('offline', this.showIndicator);
+    window.addEventListener('offline', this.showOfflinePopUp);
+    window.addEventListener('online', this.showBackOnlinePopUp);
 
     const url = 'https://api.producthunt.com/v1/categories/tech/posts';
     fetch(url, {
@@ -52,7 +54,7 @@ class Tech extends Component {
     });
   }
 
-  hideIndicator = () => {
+  hideOfflinePopUp = () => {
     this.setState(() => {
       return {
         isOffline: false
@@ -60,10 +62,28 @@ class Tech extends Component {
     });
   }
 
-  showIndicator = () => {
+  showOfflinePopUp = () => {
     this.setState(() => {
       return {
-        isOffline: true
+        isOffline: true,
+        isBackOnline: false
+      };
+    });
+  }
+
+  showBackOnlinePopUp = () => {
+    this.setState(() => {
+      return {
+        isOffline: false,
+        isBackOnline: true
+      };
+    });
+  }
+
+  hideBackOnlinePopUp = () => {
+    this.setState(() => {
+      return {
+        isBackOnline: false
       };
     });
   }
@@ -87,8 +107,11 @@ class Tech extends Component {
             </CardActions>
           </Card>
         ))}
-        <Snackbar active={this.state.isOffline} action='Undo' onTimeout={this.hideIndicator}>
+        <Snackbar active={this.state.isOffline} action='Undo' onTimeout={this.hideOfflinePopUp}>
           Now you are offline, but still your application works. Magic!
+        </Snackbar>
+        <Snackbar active={this.state.isBackOnline} action='Undo' onTimeout={this.hideBackOnlinePopUp}>
+          You{"'"}re back online!
         </Snackbar>
       </div>
     );
