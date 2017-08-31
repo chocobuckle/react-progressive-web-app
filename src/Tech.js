@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
-import { Spinner } from 'react-mdl';
+import { Spinner, Card, CardTitle, CardText, CardActions, Button } from 'react-mdl';
 
-const style = {
-  margin: 'auto',
-  top: 0,
-  left: 0,
-  bottom: 0,
-  right: 0,
-  position: 'fixed'
+const styles = {
+  spinner: {
+    margin: 'auto',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    position: 'fixed'
+  },
+
+  card: {
+    width: '512px',
+    margin: 'auto'
+  }
 };
 
 class Tech extends Component {
@@ -31,6 +38,14 @@ class Tech extends Component {
           isLoaded: true
         };
       });
+      localStorage.setItem('techPosts', JSON.stringify(data.posts));
+    }).catch(err => {
+      this.setState(() => {
+        return {
+          posts: JSON.parse(localStorage.getItem('techPosts')),
+          isLoaded: true
+        };
+      });
     });
   }
 
@@ -38,11 +53,21 @@ class Tech extends Component {
     return (
       <div>
         {
-          !this.state.isLoaded && <Spinner style={style} />
+          !this.state.isLoaded && <Spinner style={styles.spinner} />
         }
-        {this.state.posts.map(post =>
-          <div key={post.user.id}>{post.tagline} by {post.user.name}</div>
-        )}
+        {this.state.posts.map(post => (
+          <Card key={post.id} shadow={0} style={styles.card}>
+            <CardTitle style={{color: '#fff', height: '176px', background: `url(${post.thumbnail.image_url}) center / cover`}}>
+              {post.tagline}
+            </CardTitle>
+            <CardText>
+              Posted by {post.user.name}
+            </CardText>
+            <CardActions>
+              <Button colored>Show {post.comments_count} Comments</Button>
+            </CardActions>
+          </Card>
+        ))}
       </div>
     );
   }
