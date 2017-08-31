@@ -9,6 +9,6 @@ Please note: the UI of this app isn't responsive on mobile, or at least I haven'
 
 ## Getting Started
 
-Visit the live demo link above, either on an phone or on an Android emulator. I recommend Android Studio or Genymotion.
+Visit the live demo link above, either on an Android phone or on an Android emulator. I recommend Android Studio or Genymotion.
 
 After loading the app, put your phone into 'airplane' mode then refresh, you'll see that the app still loads, menu is still animating, images are being displayed from cache, scrolling still works as expected - it's magic! You'll also see a pop up notification that tells you you're browsing in offline mode. You'll see another pop up if you go back online. Now click on the browser options and select 'Add To Home Screen'. You can name the shortcut whatever you want and it will be added to your home screen with a custom icon - looking just like a native app. When you click on that you'll be presented with a splash screen, then the browser window will automatically go full screen and at this point you'll start to feel very nervous if you're a native developer hoping to still have a job in 5 years! :)
