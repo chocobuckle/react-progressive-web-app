@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Spinner, Card, CardTitle, CardText, CardActions, Button } from 'react-mdl';
+import { Spinner, Card, CardTitle, CardText, CardActions, Button, Snackbar } from 'react-mdl';
 
 const styles = {
   spinner: {
@@ -20,10 +20,13 @@ const styles = {
 class Tech extends Component {
   state = {
     posts: [],
-    isLoaded: false
+    isLoaded: false,
+    isOffline: false
   }
 
   componentDidMount() {
+    window.addEventListener('offline', this.showIndicator);
+
     const url = 'https://api.producthunt.com/v1/categories/tech/posts';
     fetch(url, {
       method: 'get',
@@ -49,6 +52,22 @@ class Tech extends Component {
     });
   }
 
+  hideIndicator = () => {
+    this.setState(() => {
+      return {
+        isOffline: false
+      };
+    });
+  }
+
+  showIndicator = () => {
+    this.setState(() => {
+      return {
+        isOffline: true
+      };
+    });
+  }
+
   render() {
     return (
       <div>
@@ -68,6 +87,9 @@ class Tech extends Component {
             </CardActions>
           </Card>
         ))}
+        <Snackbar active={this.state.isOffline} action='Undo' onTimeout={this.hideIndicator}>
+          Now you are offline, but still your application works. Magic!
+        </Snackbar>
       </div>
     );
   }
