@@ -4,8 +4,8 @@ import { Layout, Header, Content, Navigation, Drawer } from 'react-mdl';
 import './App.css';
 
 class App extends Component {
-  onHandleSubmit = () => {
-    console.log('Yo!');
+  closeDrawer = () => {
+    document.querySelector('.mdl-layout').MaterialLayout.toggleDrawer();
   }
 
   render() {
@@ -21,8 +21,8 @@ class App extends Component {
             </Header>
             <Drawer title='Product Hunt'>
               <Navigation>
-                <Link to='/tech'>Tech</Link>
-                <Link to='/games'>Games</Link>
+                <Link to='/tech' onClick={this.closeDrawer}>Tech</Link>
+                <Link to='/games' onClick={this.closeDrawer}>Games</Link>
               </Navigation>
             </Drawer>
             <Content>
