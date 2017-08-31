@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
+import { Spinner } from 'react-mdl';
+
+const style = {
+  margin: 'auto',
+  top: 0,
+  left: 0,
+  bottom: 0,
+  right: 0,
+  position: 'fixed'
+};
 
 class Tech extends Component {
   state = {
-    posts: []
+    posts: [],
+    isLoaded: false
   }
 
   componentDidMount() {
@@ -16,7 +27,8 @@ class Tech extends Component {
       console.log(data);
       this.setState(() => {
         return {
-          posts: data.posts
+          posts: data.posts,
+          isLoaded: true
         };
       });
     });
@@ -25,6 +37,9 @@ class Tech extends Component {
   render() {
     return (
       <div>
+        {
+          !this.state.isLoaded && <Spinner style={style} />
+        }
         {this.state.posts.map(post =>
           <div key={post.user.id}>{post.tagline} by {post.user.name}</div>
         )}
