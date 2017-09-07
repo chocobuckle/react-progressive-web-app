@@ -1,7 +1,7 @@
 # Progressive Web App (React)
 ## [LIVE DEMO](https://react-pwa-70b78.firebaseapp.com/)
 
-A simple demonstration of a Progressive Web App built with React, built while studying the 'Progressive Web Applications with React Jumpstart' course from Udemy. Although the UI leaves much to be desired, the fuctionality of the app showcases many new technologies that can be leveraged to enable a web application to look and behave more like a native app, and so hopfully increase user engagement. The app demonstrates 'add to home screen' functionality, offline loading, offline/online pop-up notifications, local storage, a splash screen, full screen browsing, and a custom app icon.
+A simple demonstration of a Progressive Web App built with React, built while studying the 'Progressive Web Applications with React Jumpstart' course from Udemy. Although the UI leaves much to be desired, the functionality of the app showcases many new technologies that can be leveraged to enable a web application to look and behave more like a native app, and so hopefully increase user engagement. The app demonstrates 'add to home screen' functionality, offline loading, offline/online pop-up notifications, local storage, a splash screen, full screen browsing, and a custom app icon.
 
 Please note: the UI of this app isn't responsive on mobile, or at least I haven't had a chance to make it so yet - but in this case, how the app looks is besides the point. I'm more interested in its underlying tecnologies. I believe within 3 years nobody's going to be writing apps in Swift, Java, Objective C, or even React Native. We'll all be writing progressive web apps! I'm pretty eager to learn the most I can about them.
 
