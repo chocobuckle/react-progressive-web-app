@@ -1,5 +1,5 @@
 # Progressive Web App (React)
-## [LIVE DEMO](https://react-pwa-70b78.firebaseapp.com/)
+## [LIVE DEMO](https://chocobuckle.github.io/react-progressive-web-app/)
 
 A simple demonstration of a Progressive Web App built with React, built while studying the 'Progressive Web Applications with React Jumpstart' course from Udemy. Although the UI leaves much to be desired, the functionality of the app showcases many new technologies that can be leveraged to enable a web application to look and behave more like a native app, and so hopefully increase user engagement. The app demonstrates 'add to home screen' functionality, offline loading, offline/online pop-up notifications, local storage, a splash screen, automatic full screen browsing, and a custom app icon.
 
